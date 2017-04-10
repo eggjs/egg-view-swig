@@ -1,0 +1,65 @@
+{
+  "name": "egg-view-swig",
+  "version": "1.0.0",
+  "description": "egg view plugin for swig",
+  "eggPlugin": {
+    "name": "swig",
+    "dep": [
+      "view",
+      "security"
+    ]
+  },
+  "keywords": [
+    "egg",
+    "eggPlugin",
+    "egg-plugin",
+    "egg-view",
+    "swig"
+  ],
+  "dependencies": {
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "autod": "^2.8.0",
+    "autod-egg": "^1.0.0",
+    "cheerio": "^0.22.0",
+    "egg": "^1.0.0",
+    "egg-bin": "^3.2.1",
+    "egg-mock": "^3.2.0",
+    "eslint": "^3.19.0",
+    "eslint-config-egg": "^3.2.0",
+    "should": "^11.2.1",
+    "supertest": "^3.0.0",
+    "webstorm-disable-index": "^1.0.11"
+  },
+  "files": [
+    "app",
+    "lib",
+    "config",
+    "app.js",
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "ci": {
+    "version": "6, 7"
+  },
+  "scripts": {
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod",
+    "changelog": "git changelog -n"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eggjs/egg-view-swig.git"
+  },
+  "bugs": "https://github.com/eggjs/egg/issues",
+  "homepage": "https://github.com/eggjs/egg-view-swig#readme",
+  "author": "hubcarl@126.com",
+  "license": "MIT"
+}

@@ -1,0 +1,7 @@
+test/fixtures/apps/view/app/public
+test/fixtures/apps/view/app/view
+coverage/
+logs/
+run/
+
+
