@@ -1,6 +1,6 @@
 {
   "name": "egg-view-swig",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "egg view plugin for swig",
   "eggPlugin": {
     "name": "swig",
