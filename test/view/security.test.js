@@ -3,6 +3,7 @@
 const request = require('supertest');
 const mm = require('egg-mock');
 const cheerio = require('cheerio');
+const assert = require('assert');
 describe('test/view/security.test.js', () => {
   let app;
   before(() => {
@@ -46,14 +47,8 @@ describe('test/view/security.test.js', () => {
     request(app.callback())
       .get('/security/form_csrf')
       .expect(200, (err, res) => {
-        console.log('>>>inject csrf res.text', res.text);
         const $ = cheerio.load(res.text);
-        $('#form1 input').length.should.equal(2);
-        $('#form1 [name=_csrf]').attr('name').should.equal('_csrf');
-        $('#form1 [name=_csrf]').val().length.should.above(1);
-        $('#form2 input').length.should.equal(1);
-        $('#form2 input').attr('data-a').should.equal('a');
-        $('#form2 input').val().length.should.above(1);
+        assert($('#form2 [name=_csrf]').attr('value'), 'not empty');
         done();
       });
   });
