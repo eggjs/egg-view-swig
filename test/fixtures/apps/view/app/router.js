@@ -5,6 +5,7 @@ module.exports = app => {
   app.get('/', app.controller.index.render);
   app.get('/error', app.controller.index.error);
   app.get('/renderString', app.controller.index.renderString);
+  app.get('/renderStringError', app.controller.index.renderStringError);
 
   app.get('/security/home', '/security', app.controller.security.home);
   app.get('/security/xss', app.controller.security.xss);

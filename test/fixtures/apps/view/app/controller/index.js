@@ -29,3 +29,16 @@ exports.renderString = function* (ctx) {
     },
   });
 };
+
+exports.renderStringError = function* (ctx) {
+  try {
+    ctx.body = yield ctx.renderString('{% error content %}<p>{{ data.name}}</p>{% error %}', {
+      data: {
+        name: 'swig renderString',
+      },
+    });
+  } catch (e) {
+    this.status = 500;
+    this.body = e.toString();
+  }
+};

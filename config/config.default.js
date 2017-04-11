@@ -5,7 +5,8 @@ module.exports = () => {
 
   /**
    * swig View options
-   * @property {Boolean} [cache] 是否缓存 如果是则为内存缓存
+   * @property {Boolean} [cache] template cache. if true: memory cache  false: no cache
+   *
    */
   config.swig = {
     cache: true,

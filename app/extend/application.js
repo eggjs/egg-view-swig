@@ -10,9 +10,9 @@ module.exports = {
    * @member {Object} Application#viewEngine
    */
   get swig() {
-    if (!this[ SWIG_VIEW_ENGINE ]) {
-      this[ SWIG_VIEW_ENGINE ] = engine(this);
+    if (!this[SWIG_VIEW_ENGINE]) {
+      this[SWIG_VIEW_ENGINE] = engine(this);
     }
-    return this[ SWIG_VIEW_ENGINE ];
+    return this[SWIG_VIEW_ENGINE];
   },
 };

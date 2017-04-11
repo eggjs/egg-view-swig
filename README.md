@@ -1,6 +1,11 @@
 # egg-view-swig
 
-Use [swig](http://paularmstrong.github.io/swig/) Template Engine
+Use [swig]( https://github.com/paularmstrong/swig) Template Engine
+
+NOTE: swig is NOT MAINTAINED.
+
+DOCS: http://node-swig.github.io/swig-templates
+
 
 ## Install
 
@@ -39,8 +44,8 @@ Render in controller
 
 ```js
 // {app_root}/app/controller/test.js
-exports.home = function* () {
-  yield this.render('home.tpl', { name: 'swig view' });
+exports.home = function* (ctx) {
+  yield ctx.render('home.tpl', { name: 'swig view' });
 };
 ```
 ## Configuration

@@ -35,4 +35,11 @@ describe('test/view/view.test.js', () => {
       .expect(200)
       .expect(/<p>swig renderString<\/p>/, done);
   });
+
+  it('should renderStringError', done => {
+    request(app.callback())
+      .get('/renderStringError')
+      .expect(500)
+      .expect(/Unexpected tag/, done);
+  });
 });
