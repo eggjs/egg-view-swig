@@ -48,10 +48,13 @@ describe('test/view/security.test.js', () => {
       .get('/security/form_csrf')
       .expect(200, (err, res) => {
         const $ = cheerio.load(res.text);
+        console.log('>>>res.text', res.text);
         assert.equal($('#form1 input').length, 2);
         assert.equal($('#form1 [name=_csrf]').attr('name'), '_csrf');
         assert.equal($('#form2 input').length, 1);
         assert.equal($('#form2 input').attr('data-a'), 'a');
+        assert.notEqual($('#form1 [name=_csrf]').val(), '');
+        assert.notEqual($('#form2 [name=_csrf]').val(), '');
         done();
       });
   });
