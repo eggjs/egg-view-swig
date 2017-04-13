@@ -16,8 +16,8 @@ describe('test/view/security.test.js', () => {
   after(() => app.close());
   afterEach(mm.restore);
 
-  it('should render xss', done => {
-    request(app.callback())
+  it('should render xss', () => {
+    return request(app.callback())
       .get('/security/xss')
       .expect(200)
       .expect([
@@ -26,21 +26,21 @@ describe('test/view/security.test.js', () => {
         'http://alipay.com/index.html?a=&lt;div&gt;',
         '&lt;div id=&quot;a&quot;&gt;&#39;a&#39;&lt;/div&gt;',
         '',
-      ].join('\n'), done);
+      ].join('\n'));
   });
 
-  it('should render sjs', done => {
-    request(app.callback())
+  it('should render sjs', () => {
+    return request(app.callback())
       .get('/security/sjs')
       .expect(200)
-      .expect('var foo = "\\x22hello\\x22";\n', done);
+      .expect('var foo = "\\x22hello\\x22";\n');
   });
 
-  it('should render shtml', done => {
-    request(app.callback())
+  it('should render shtml', () => {
+    return request(app.callback())
       .get('/security/shtml')
       .expect(200)
-      .expect('<img><h1>foo</h1>\n', done);
+      .expect('<img><h1>foo</h1>\n');
   });
 
   it('should inject csrf hidden field in form', done => {

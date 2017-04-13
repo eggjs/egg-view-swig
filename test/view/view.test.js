@@ -15,31 +15,31 @@ describe('test/view/view.test.js', () => {
   after(() => app.close());
   afterEach(mm.restore);
 
-  it('should render', done => {
-    request(app.callback())
+  it('should render', () => {
+    return request(app.callback())
       .get('/')
       .expect(200)
-      .expect('Hi,EGG swig render-----egg view plugin for swig', done);
+      .expect('Hi,EGG swig render-----egg view plugin for swig');
   });
 
-  it('should render error', done => {
-    request(app.callback())
+  it('should render error', () => {
+    return request(app.callback())
       .get('/error')
       .expect(500)
-      .expect(/Unexpected tag/, done);
+      .expect(/Unexpected tag/);
   });
 
-  it('should renderString', done => {
-    request(app.callback())
+  it('should renderString', () => {
+    return request(app.callback())
       .get('/renderString')
       .expect(200)
-      .expect(/<p>swig renderString<\/p>/, done);
+      .expect(/<p>swig renderString<\/p>/);
   });
 
-  it('should renderStringError', done => {
-    request(app.callback())
+  it('should renderStringError', () => {
+    return request(app.callback())
       .get('/renderStringError')
       .expect(500)
-      .expect(/Unexpected tag/, done);
+      .expect(/Unexpected tag/);
   });
 });
