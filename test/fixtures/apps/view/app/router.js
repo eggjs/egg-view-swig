@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports = app => {
-
   app.get('/', 'index.render');
   app.get('/error', 'index.error');
   app.get('/renderString', 'index.renderString');
