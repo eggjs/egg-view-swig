@@ -17,8 +17,8 @@ exports.error = function* (ctx) {
       },
     });
   } catch (e) {
-    this.status = 500;
-    this.body = e.toString();
+    ctx.status = 500;
+    ctx.body = e.toString();
   }
 };
 
@@ -38,7 +38,15 @@ exports.renderStringError = function* (ctx) {
       },
     });
   } catch (e) {
-    this.status = 500;
-    this.body = e.toString();
+    ctx.status = 500;
+    ctx.body = e.toString();
   }
+};
+
+exports.renderStringOptions = function* (ctx) {
+  ctx.body = yield ctx.renderString('<p>{@ data.name @}</p>', {
+    data: {
+      name: 'swig renderString',
+    },
+  }, { varControls: [ '{@', '@}' ] });
 };

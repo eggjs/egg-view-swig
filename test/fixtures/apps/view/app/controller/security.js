@@ -2,7 +2,7 @@
 exports.context = function* (ctx) {
   yield ctx.render('security/js.html', {
     context: {
-      a: this.request.body.a,
+      a: ctx.request.body.a,
     },
   });
 };
@@ -19,15 +19,15 @@ exports.error = function* (ctx) {
   try {
     yield ctx.render('security/error.html');
   } catch (e) {
-    this.status = 500;
-    this.body = e.toString();
+    ctx.status = 500;
+    ctx.body = e.toString();
   }
 };
 
 
 exports.home = function* (ctx) {
   yield ctx.render('security/index.html', { name: 'mk・2' });
-  this.app.swig.invalidateCache();
+  ctx.app.swig.invalidateCache();
 };
 
 exports.locals = function* (ctx) {
@@ -52,13 +52,16 @@ exports.sjs = function* (ctx) {
 };
 
 exports.string = function* (ctx) {
-  this.body = yield ctx.renderString('{{ context.a }}', {
+  ctx.body = yield ctx.renderString('{{ context.a }}', {
     context: {
       a: 'templateString',
     },
   });
 };
 
+exports.filter = function* (ctx) {
+  ctx.body = yield ctx.renderString('{{ user | hello }}', { user: 'egg' });
+};
 
 exports.watch = function* (ctx) {
   yield ctx.render('security/watch.html');
@@ -69,4 +72,13 @@ exports.xss = function* (ctx) {
     url: 'http://alipay.com/index.html?a=<div>',
     html: '<div id="a">\'a\'</div>',
   });
+};
+
+exports.render_string_error = function* (ctx) {
+  try {
+    ctx.body = yield ctx.renderString('{%}');
+  } catch (e) {
+    ctx.status = 500;
+    ctx.body = e.toString();
+  }
 };

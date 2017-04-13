@@ -7,7 +7,7 @@ module.exports = {
 
   /**
    * swig view engine
-   * @member {Object} Application#viewEngine
+   * @member {Object} Application#swig
    */
   get swig() {
     if (!this[SWIG_VIEW_ENGINE]) {
