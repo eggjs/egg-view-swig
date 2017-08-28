@@ -40,6 +40,20 @@ exports.swig = {
 };
 ```
 
+Set filter
+```javascript
+// {app_root}/app/extend/filter.js
+exports.hello = name => `hi, ${name}.`;   
+
+// {app_root}/app/controller/{your_controller}.js
+exports.home = function* (ctx) {
+  yield ctx.render('home.tpl', { name: 'egg' });
+};
+
+// home.tpl
+{{ name | hello }}
+```
+
 Render in controller
 
 ```js
