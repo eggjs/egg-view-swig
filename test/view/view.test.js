@@ -22,6 +22,13 @@ describe('test/view/view.test.js', () => {
       .expect('Hi,EGG swig render-----egg view plugin for swig');
   });
 
+  it('should set filter', () => {
+    return request(app.callback())
+      .get('/filter')
+      .expect(200)
+      .expect('hi, egg.');
+  });
+
   it('should render error', () => {
     return request(app.callback())
       .get('/error')

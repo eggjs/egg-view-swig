@@ -22,6 +22,12 @@ exports.error = function* (ctx) {
   }
 };
 
+exports.setFilter = function* (ctx) {
+  yield ctx.render('filter.html', {
+    name: 'egg',
+  });
+};
+
 exports.renderString = function* (ctx) {
   ctx.body = yield ctx.renderString('<p>{{ data.name}}</p>', {
     data: {

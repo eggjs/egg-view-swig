@@ -3,6 +3,7 @@
 module.exports = app => {
   app.get('/', 'index.render');
   app.get('/error', 'index.error');
+  app.get('/filter', 'index.setFilter');
   app.get('/renderString', 'index.renderString');
   app.get('/renderStringOptions', 'index.renderStringOptions');
   app.get('/renderStringError', 'index.renderStringError');
