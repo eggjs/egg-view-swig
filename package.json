@@ -20,15 +20,15 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
-    "autod": "^2.8.0",
+    "autod": "^3.1.0",
     "autod-egg": "^1.0.0",
     "cheerio": "^0.22.0",
-    "egg": "^1.0.0",
-    "egg-bin": "^3.2.1",
+    "egg": "^2.22.2",
+    "egg-bin": "^4.13.0",
     "egg-mock": "^3.2.0",
-    "eslint": "^3.19.0",
-    "eslint-config-egg": "^3.2.0",
-    "supertest": "^3.0.0",
+    "eslint": "^6.0.0",
+    "eslint-config-egg": "^7.4.1",
+    "supertest": "^4.0.2",
     "webstorm-disable-index": "^1.0.11"
   },
   "files": [
