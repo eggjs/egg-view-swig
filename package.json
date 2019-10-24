@@ -42,7 +42,7 @@
     "node": ">=6.0.0"
   },
   "ci": {
-    "version": "6, 7"
+    "version": "10, 12"
   },
   "scripts": {
     "test": "npm run lint -- --fix && npm run test-local",
